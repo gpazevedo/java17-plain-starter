@@ -1,0 +1,207 @@
+{
+    "metadata": {
+        "source_format": "native",
+        "data_custodian": "Team Pedidos",
+        "bu": "fis",
+        "data_owner_email": "teampedidos@gruposbf.com.br",
+        "ingestion_method": "streaming",
+        "upstream_lineage": [],
+        "bu_code": "0000",
+        "data_owner": "Team Pedidos",
+        "data_custodian_email": "teampedidos@gruposbf.com.br",
+        "ingestion_cron": "",
+        "tags": []
+    },
+    "schema_contract": {
+        "partition": {
+            "type": "",
+            "config": {}
+        },
+        "description": "Dados de pedidos criados e pagos da Fisia",
+        "type": "bigquery",
+        "properties": [
+            {
+                "mode": "REQUIRED",
+                "policyTags": {},
+                "great_expectation": [],
+                "deidentify": {},
+                "description": "Id do pedido",
+                "type": "INTEGER",
+                "field_name": "order_id"
+            },
+            {
+                "mode": "NULLABLE",
+                "policyTags": {},
+                "great_expectation": [],
+                "deidentify": {},
+                "description": "Data de criação do pedido",
+                "type": "TIMESTAMP",
+                "field_name": "created_datetime"
+            },
+            {
+                "mode": "NULLABLE",
+                "policyTags": {},
+                "great_expectation": [],
+                "deidentify": {},
+                "description": "Data de pagamento do pedido",
+                "type": "TIMESTAMP",
+                "field_name": "payment_datetime"
+            },
+            {
+                "mode": "NULLABLE",
+                "policyTags": {},
+                "great_expectation": [],
+                "deidentify": {},
+                "description": "Data de cancelamento do pedido",
+                "type": "TIMESTAMP",
+                "field_name": "canceled_datetime"
+            },
+            {
+                "mode": "REQUIRED",
+                "policyTags": {},
+                "great_expectation": [],
+                "deidentify": {},
+                "description": "Status do Pedido",
+                "type": "STRING",
+                "field_name": "order_status"
+            },
+            {
+                "mode": "REQUIRED",
+                "policyTags": {},
+                "great_expectation": [],
+                "deidentify": {},
+                "description": "Nome do Canal de Venda",
+                "type": "STRING",
+                "field_name": "sales_channel"
+            },
+            {
+                "mode": "REQUIRED",
+                "policyTags": {},
+                "great_expectation": [],
+                "deidentify": {},
+                "description": "Cupom de Desconto",
+                "type": "STRING",
+                "field_name": "discount_coupon"
+            },
+            {
+                "mode": "REQUIRED",
+                "policyTags": {},
+                "great_expectation": [],
+                "deidentify": {},
+                "description": "Estado de Entrega",
+                "type": "STRING",
+                "field_name": "shipping_uf"
+            },
+            {
+                "mode": "REQUIRED",
+                "policyTags": {},
+                "great_expectation": [],
+                "deidentify": {},
+                "description": "Valor total do pedido",
+                "type": "FLOAT",
+                "field_name": "total_price"
+            },
+            {
+                "mode": "REQUIRED",
+                "policyTags": {},
+                "great_expectation": [],
+                "deidentify": {},
+                "description": "Id do Grupo de Entrega",
+                "type": "INTEGER",
+                "field_name": "delivery_group_id"
+            },
+            {
+                "mode": "REQUIRED",
+                "policyTags": {},
+                "great_expectation": [],
+                "deidentify": {},
+                "description": "Status do Grupo de Entrega",
+                "type": "STRING",
+                "field_name": "delivery_group_status"
+            },
+            {
+                "mode": "REQUIRED",
+                "policyTags": {},
+                "great_expectation": [],
+                "deidentify": {},
+                "description": "Id do Item",
+                "type": "INTEGER",
+                "field_name": "item_id"
+            },
+            {
+                "mode": "REQUIRED",
+                "policyTags": {},
+                "great_expectation": [],
+                "deidentify": {},
+                "description": "Nome do item",
+                "type": "STRING",
+                "field_name": "item_name"
+            },
+            {
+                "mode": "REQUIRED",
+                "policyTags": {},
+                "great_expectation": [],
+                "deidentify": {},
+                "description": "Sku do item",
+                "type": "STRING",
+                "field_name": "item_sku"
+            },
+            {
+                "mode": "REQUIRED",
+                "policyTags": {},
+                "great_expectation": [],
+                "deidentify": {},
+                "description": "Ean do produto",
+                "type": "STRING",
+                "field_name": "item_ean"
+            },
+            {
+                "mode": "REQUIRED",
+                "policyTags": {},
+                "great_expectation": [],
+                "deidentify": {},
+                "description": "Quantidade de itens no pedido",
+                "type": "INTEGER",
+                "field_name": "item_quantity"
+            },
+            {
+                "mode": "REQUIRED",
+                "policyTags": {},
+                "great_expectation": [],
+                "deidentify": {},
+                "description": "Tamanho do produto",
+                "type": "STRING",
+                "field_name": "item_size"
+            },
+            {
+                "mode": "REQUIRED",
+                "policyTags": {},
+                "great_expectation": [],
+                "deidentify": {},
+                "description": "Gênero do modelo",
+                "type": "STRING",
+                "field_name": "item_gender"
+            },
+            {
+                "mode": "REQUIRED",
+                "policyTags": {},
+                "great_expectation": [],
+                "deidentify": {},
+                "description": "Código estilo do produto",
+                "type": "STRING",
+                "field_name": "item_code_style"
+            },
+            {
+                "mode": "REQUIRED",
+                "policyTags": {},
+                "great_expectation": [],
+                "deidentify": {},
+                "description": "Categoria do produto",
+                "type": "STRING",
+                "field_name": "item_category"
+            }
+        ]
+    },
+    "name": "fis_order_dev_order-metrics_v2",
+    "id": "fis.order.dev.raw.order_metrics.v2-bq"
+}

@@ -1,0 +1,148 @@
+{
+	"id": "fis.order.dev.trusted.order_test.v0",
+	"name": "fis.trd.order.dev.order-test",
+	"schema_contract": {
+		"type": "kafka",
+		"description": "Teste Kafka BigQuery",
+		"partition": {
+			"type": "time",
+			"config": {
+                "field": "created_datetime",
+                "type": "DAY",
+                "require_partition_filter": false
+            }
+		},
+		"properties": [
+			{
+				"field_name": "id",
+				"type": "int",
+				"mode": "",
+				"description": "Id do pedido",
+				"deidentify": {},
+				"policyTags": {},
+				"great_expectation": []
+			},
+			{
+				"field_name": "created_datetime",
+				"type": {
+					"logicalType": "timestamp-millis",
+					"type": "long"
+				},
+				"mode": "",
+				"description": "Data de criação do pedido",
+				"deidentify": {},
+				"policyTags": {},
+				"great_expectation": []
+			},
+			{
+				"field_name": "sales_channel",
+				"type": "string",
+				"mode": "",
+				"description": "Canal de Venda",
+				"deidentify": {},
+				"policyTags": {},
+				"great_expectation": []
+			},
+			{
+				"field_name": "size",
+				"type": "string",
+				"mode": "",
+				"description": "Tamanho do produto",
+				"deidentify": {},
+				"policyTags": {},
+				"great_expectation": []
+			},
+			{
+				"field_name": "total_price",
+				"type": "float",
+				"mode": "",
+				"description": "Valor total do pedido",
+				"deidentify": {},
+				"policyTags": {},
+				"great_expectation": []
+			},
+			{
+				"field_name": "quantity",
+				"type": "int",
+				"mode": "",
+				"description": "Quantidade de itens no pedido",
+				"deidentify": {},
+				"policyTags": {},
+				"great_expectation": []
+			},
+			{
+				"field_name": "luck",
+				"type": "boolean",
+				"mode": "",
+				"description": "Boleano",
+				"deidentify": {},
+				"policyTags": {},
+				"great_expectation": []
+			},
+			{
+				"field_name": "gigante",
+				"type": "long",
+				"mode": "",
+				"description": "Número Longo",
+				"deidentify": {},
+				"policyTags": {},
+				"great_expectation": []
+			},
+			{
+				"field_name": "duplo",
+				"type": "double",
+				"mode": "",
+				"description": "Número Dupla Precisão",
+				"deidentify": {},
+				"policyTags": {},
+				"great_expectation": []
+			},
+			{
+				"field_name": "sequencia",
+				"type": "bytes",
+				"mode": "",
+				"description": "Sequencia de Bytes",
+				"deidentify": {},
+				"policyTags": {},
+				"great_expectation": []
+			},
+			{
+				"field_name": "KTMNG",
+				"type": {
+				   "logicalType": "decimal",
+				   "precision": 38,
+				   "scale": 3,
+				   "type": "bytes"
+				},
+				"mode": "REQUIRED",
+				"description": "Quantidade prevista",
+				"deidentify": {
+				   "transformation": "",
+				   "info_types": []
+				},
+				"policyTags": {
+				   "names": []
+				},
+				"great_expectation": [
+				   {
+					  "expectation_function": "expect_column_values_to_not_be_null",
+					  "expectation_param": []
+				   }
+				]
+			}
+		]
+	},
+	"metadata": {
+		"data_owner": "Team Pedidos",
+		"data_owner_email": "teampedidos@gruposbf.com.br",
+		"data_custodian": "Team Pedidos",
+		"data_custodian_email": "teampedidos@gruposbf.com.br",
+		"ingestion_method": "streaming",
+		"ingestion_cron": "",
+		"upstream_lineage": [],
+		"source_format": "avro",
+		"bu": "fis",
+		"bu_code": "0000",
+		"tags": []
+	}
+}

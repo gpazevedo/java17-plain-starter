@@ -1,0 +1,136 @@
+{
+    "metadata": {
+        "source_format": "native",
+        "data_custodian": "Team Pedidos",
+        "bu": "fis",
+        "data_owner_email": "teampedidos@gruposbf.com.br",
+        "ingestion_method": "streaming",
+        "upstream_lineage": [],
+        "bu_code": "0000",
+        "data_owner": "Team Pedidos",
+        "data_custodian_email": "teampedidos@gruposbf.com.br",
+        "ingestion_cron": "",
+        "tags": []
+    },
+    "schema_contract": {
+        "partition": {
+            "type": "time",
+            "config": {
+                "require_partition_filter": false,
+                "field": "created_datetime",
+                "type": "DAY"
+            }
+        },
+        "description": "Teste Kafka BigQuery",
+        "type": "bigquery",
+        "properties": [
+            {
+                "mode": "NULLABLE",
+                "policyTags": {},
+                "great_expectation": [],
+                "deidentify": {},
+                "description": "Id do pedido",
+                "type": "INTEGER",
+                "field_name": "id"
+            },
+            {
+                "mode": "NULLABLE",
+                "policyTags": {},
+                "great_expectation": [],
+                "deidentify": {},
+                "description": "Data de criação do pedido",
+                "type": "TIMESTAMP",
+                "field_name": "created_datetime"
+            },
+            {
+                "mode": "NULLABLE",
+                "policyTags": {},
+                "great_expectation": [],
+                "deidentify": {},
+                "description": "Canal de Venda",
+                "type": "STRING",
+                "field_name": "sales_channel"
+            },
+            {
+                "mode": "NULLABLE",
+                "policyTags": {},
+                "great_expectation": [],
+                "deidentify": {},
+                "description": "Tamanho do produto",
+                "type": "STRING",
+                "field_name": "size"
+            },
+            {
+                "mode": "NULLABLE",
+                "policyTags": {},
+                "great_expectation": [],
+                "deidentify": {},
+                "description": "Valor total do pedido",
+                "type": "FLOAT",
+                "field_name": "total_price"
+            },
+            {
+                "mode": "NULLABLE",
+                "policyTags": {},
+                "great_expectation": [],
+                "deidentify": {},
+                "description": "Quantidade de itens no pedido",
+                "type": "INTEGER",
+                "field_name": "quantity"
+            },
+            {
+                "mode": "NULLABLE",
+                "policyTags": {},
+                "great_expectation": [],
+                "deidentify": {},
+                "description": "Boleano",
+                "type": "BOOLEAN",
+                "field_name": "luck"
+            },
+            {
+                "mode": "NULLABLE",
+                "policyTags": {},
+                "great_expectation": [],
+                "deidentify": {},
+                "description": "Número Longo",
+                "type": "INTEGER",
+                "field_name": "gigante"
+            },
+            {
+                "mode": "NULLABLE",
+                "policyTags": {},
+                "great_expectation": [],
+                "deidentify": {},
+                "description": "Número Dupla Precisão",
+                "type": "FLOAT",
+                "field_name": "duplo"
+            },
+            {
+                "mode": "NULLABLE",
+                "policyTags": {},
+                "great_expectation": [],
+                "deidentify": {},
+                "description": "Sequencia de Bytes",
+                "type": "BYTES",
+                "field_name": "sequencia"
+            },
+            {
+                "mode": "REQUIRED",
+                "policyTags": {"names": []},
+                "great_expectation": [{
+                    "expectation_param": [],
+                    "expectation_function": "expect_column_values_to_not_be_null"
+                }],
+                "deidentify": {
+                    "info_types": [],
+                    "transformation": ""
+                },
+                "description": "Quantidade prevista",
+                "type": "NUMERIC",
+                "field_name": "KTMNG"
+            }
+        ]
+    },
+    "name": "fis_trd_order_dev_order-test",
+    "id": "fis.order.dev.trusted.order_test.v0-bq"
+}
