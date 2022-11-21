@@ -3,26 +3,101 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>br.com.gruposbf.burnwood</groupId>
-  <artifactId>kafkatwin</artifactId>
-  <version>1.0-SNAPSHOT</version>
+  <artifactId>kafka2bigquery</artifactId>
+  <version>0.1</version>
   <packaging>jar</packaging>
 
-  <name>kafkatwin</name>
+  <name>kafka2bigquery</name>
   <url>http://maven.apache.org</url>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <maven.compiler.source>17</maven.compiler.source>
-    <maven.compiler.target>17</maven.compiler.target>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+    <junit.version>5.9.0</junit.version>
+    <lombok.version>1.18.24</lombok.version>
+    <avro.version>1.11.1</avro.version>
+    <beam.version>2.42.0</beam.version>
+    <gcp.version>2.19.1</gcp.version>
+    <kafka.version>3.3.1</kafka.version>
+    <confluent.version>5.3.2</confluent.version> <!-- Beam compatible -->
   </properties>
+
+  <!--necessary to resolve confluent dependencies-->
+  <repositories>
+    <repository>
+      <id>confluent</id>
+      <url>https://packages.confluent.io/maven/</url>
+    </repository>
+  </repositories>
 
   <dependencies>
     <dependency>
       <groupId>org.junit.jupiter</groupId>
       <artifactId>junit-jupiter-engine</artifactId>
-      <version>5.9.0</version>
+      <version>${junit.version}</version>
       <scope>test</scope>
     </dependency>
+
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <version>${lombok.version}</version>
+      <scope>provided</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.apache.kafka</groupId>
+      <artifactId>kafka-clients</artifactId>
+      <version>${kafka.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.avro</groupId>
+      <artifactId>avro</artifactId>
+      <version>${avro.version}</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/io.confluent/kafka-schema-registry-client -->
+    <dependency>
+      <groupId>io.confluent</groupId>
+      <artifactId>kafka-schema-registry-client</artifactId>
+      <version>${confluent.version}</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/io.confluent/kafka-avro-serializer -->
+    <dependency>
+      <groupId>io.confluent</groupId>
+      <artifactId>kafka-avro-serializer</artifactId>
+      <version>${confluent.version}</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/org.apache.beam/beam-sdks-java-core -->
+    <dependency>
+      <groupId>org.apache.beam</groupId>
+      <artifactId>beam-sdks-java-core</artifactId>
+      <version>${beam.version}</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/org.apache.beam/beam-sdks-java-io-kafka -->
+    <dependency>
+      <groupId>org.apache.beam</groupId>
+      <artifactId>beam-sdks-java-io-kafka</artifactId>
+      <version>${beam.version}</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/org.apache.beam/beam-sdks-java-io-google-cloud-platform -->
+    <dependency>
+      <groupId>org.apache.beam</groupId>
+      <artifactId>beam-sdks-java-io-google-cloud-platform</artifactId>
+      <version>${beam.version}</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/org.apache.beam/beam-runners-google-cloud-dataflow-java -->
+    <dependency>
+      <groupId>org.apache.beam</groupId>
+      <artifactId>beam-runners-google-cloud-dataflow-java</artifactId>
+      <version>${beam.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.google.cloud</groupId>
+      <artifactId>google-cloud-bigquery</artifactId>
+      <version>${gcp.version}</version>
+    </dependency>
+
   </dependencies>
 
   <build>
@@ -35,7 +110,7 @@
         <configuration>
           <archive>
             <manifest>
-              <mainClass>br.com.gruposbf.burnwood.KafkaTwin</mainClass>
+              <mainClass>br.com.gruposbf.burnwood.Kafka2BigQuery</mainClass>
             </manifest>
           </archive>
         </configuration>
